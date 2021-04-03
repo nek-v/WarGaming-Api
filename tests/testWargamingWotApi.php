@@ -3,88 +3,91 @@
 use Hichxm\WarGaming\WargamingWotApi;
 use PHPUnit\Framework\TestCase;
 
-class testWargamingWotApi extends TestCase{
-
+class testWargamingWotApi extends TestCase
+{
     /**
      * @test
      */
-    public function check_namespace_work()
+    public function checkNamespaceWork()
     {
-        $wot = new WargamingWotApi("e9807cace93606169c54fb8e9ec763b2", "eu");
+        $wot = new WargamingWotApi('9a423849e1efc6015e45934f4e9b3f57', 'eu');
 
         $this->assertTrue(true);
     }
 
     /**
      * @test
+     *
      * @throws Exception
      */
-    public function check_search_player_work_with_default_options()
+    public function checkSearchPlayerWorkWithDefaultOptions()
     {
-        $wot = new WargamingWotApi("e9807cace93606169c54fb8e9ec763b2", "eu");
+        $wot = new WargamingWotApi('9a423849e1efc6015e45934f4e9b3f57', 'eu');
 
-        $players = $wot->searchPlayers("volca780");
+        $players = $wot->searchPlayers('volca780');
 
-        $this->assertEquals("volca780", $players['players'][0]['nickname']);
-
+        $this->assertEquals('volca780', $players['players'][0]['nickname']);
     }
 
     /**
      * @test
+     *
      * @throws Exception
      */
-    public function check_search_player_work_with_custom_options()
+    public function checkSearchPlayerWorkWithCustomOptions()
     {
-        $wot = new WargamingWotApi("e9807cace93606169c54fb8e9ec763b2", "ru");
+        $wot = new WargamingWotApi('9a423849e1efc6015e45934f4e9b3f57', 'ru');
 
-        $players = $wot->searchPlayers("vol", [
-            "limit" => 5,
-            "region" => "eu",
-            "method" => "startswith"
+        $players = $wot->searchPlayers('vol', [
+            'limit' => 5,
+            'region' => 'eu',
+            'method' => 'startswith',
         ]);
 
         $this->assertEquals(5, $players['count']);
-
     }
 
     /**
      * @test
+     *
      * @throws Exception
      */
-    public function check_info_player_work_with_default_options()
+    public function checkInfoPlayerWorkWithDefaultOptions()
     {
-        $wot = new WargamingWotApi("e9807cace93606169c54fb8e9ec763b2", "eu");
+        $wot = new WargamingWotApi('9a423849e1efc6015e45934f4e9b3f57', 'eu');
 
-        $players = $wot->infoPlayersById(["500080014", "514444123"]);
+        $players = $wot->infoPlayersById(['500080014', '514444123']);
 
-        $this->assertEquals("volca780", $players['players']["514444123"]['nickname']);
+        $this->assertEquals('volca780', $players['players']['514444123']['nickname']);
     }
 
     /**
      * @test
+     *
      * @throws Exception
      */
-    public function check_players_vehicules_with_default_option()
+    public function checkPlayersVehiculesWithDefaultOption()
     {
         //Init Wargaming.net api key and region
-        $wot = new WargamingWotApi("e9807cace93606169c54fb8e9ec763b2", "eu");
+        $wot = new WargamingWotApi('9a423849e1efc6015e45934f4e9b3f57', 'eu');
 
-        $players = $wot->playersTank(["500450795", "503197062", "500435236"]);
+        $players = $wot->playersTank(['500450795', '503197062', '500435236']);
 
         $this->assertEquals(3, $players['count']);
     }
 
     /**
      * @test
+     *
      * @throws Exception
      */
-    public function check_players_vehicules_with_custom_option()
+    public function checkPlayersVehiculesWithCustomOption()
     {
         //Init Wargaming.net api key and region
-        $wot = new WargamingWotApi("e9807cace93606169c54fb8e9ec763b2", "eu");
+        $wot = new WargamingWotApi('9a423849e1efc6015e45934f4e9b3f57', 'eu');
 
-        $players = $wot->playersTank(["500450795", "503197062", "500435236"], [
-            "tanks" => ["2849", "10785"]
+        $players = $wot->playersTank(['500450795', '503197062', '500435236'], [
+            'tanks' => ['2849', '10785'],
         ]);
 
         $this->assertEquals(3, $players['count']);
@@ -92,15 +95,15 @@ class testWargamingWotApi extends TestCase{
 
     /**
      * @test
+     *
      * @throws Exception
      */
-    public function check_achivement_player_work_with_default_options()
+    public function checkAchivementPlayerWorkWithDefaultOptions()
     {
-        $wot = new WargamingWotApi("e9807cace93606169c54fb8e9ec763b2", "eu");
+        $wot = new WargamingWotApi('9a423849e1efc6015e45934f4e9b3f57', 'eu');
 
-        $players = $wot->playerAchievement(["500080014", "514444123"]);
+        $players = $wot->playerAchievement(['500080014', '514444123']);
 
         $this->assertEquals(2, $players['count']);
     }
-
 }

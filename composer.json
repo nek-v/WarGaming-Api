@@ -1,8 +1,12 @@
 {
-    "name": "hichxm/wargaming-api",
+    "name": "nek-v/wargaming-api",
     "description": "Wargaming.net api oriented object.",
     "keywords": ["wargaming", "api", "oriented", "object", "wot"],
     "type": "library",
+    "require": {
+      "php": ">=7.4",
+      "guzzlehttp/guzzle": "^7.3"
+    },
     "require-dev": {
         "phpunit/phpunit": "^7.0",
         "victorjonsson/markdowndocs": "^1.3"
@@ -12,15 +16,15 @@
         {
             "name": "Hichxm",
             "email": "hicham.slimani.fr@gmail.com"
+        },
+        {
+          "name": "nek",
+          "email": "nek@srez.org"
         }
     ],
-    "require": {
-        "php": ">=7.1.9",
-        "guzzlehttp/guzzle": "^6.3"
-    },
     "autoload": {
         "classmap": [
             "src"
         ]
     }
-}
+  }
