@@ -10,56 +10,54 @@ This package composer, allows to use more simply the
 **wargaming API** with a very simple and well documented 
 object-oriented code for your IDE (*integrated development environment*).
 
-## Documentation. [full doc here](DOC.md)
-
 1) Get your application id [here](https://developers.wargaming.net/applications/)
 2) Initialise your application
 
-	| Region        | code |
-	| ------------- | ---- |
-	| Russia        | ru   |
-	| Europe        | eu   |
-	| Asia          | asia |
-	| North America | na   |
-	```php
-	$WarGaming = new WargamingApi($application_id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", $region = "eu");
-	```
+| Region        | code |
+| ------------- | ---- |
+| Russia        | ru   |
+| Europe        | eu   |
+| Asia          | asia |
+| North America | na   |
+
 3) Make request
-	
+```php
+$WarGaming = new WargamingApi($application_id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", $region = "eu");
+```
 1) Search player
-    ```php
-    $WarGaming->searchPlayers($search = "volca", $options = [
-        "limit" => 10,
-        "method" => "startswith",
-        "region" => "eu"
-    ]);
-    ```
+```php
+$WarGaming->searchPlayers($search = "volca", $options = [
+    "limit"     => 10,
+    "method"    => "startswith",
+    "region"    => "eu"
+]);
+```
 2) Search player(s) by id
-    ```php
-    $WarGaming->infoPlayersById($players_id = ["500080014", "514444123", "514444121"], $options = [
-        "region" => "eu"
-    ]);
-    ```
+```php
+$WarGaming->infoPlayersById($players_id = ["500080014", "514444123", "514444121"], $options = [
+    "region" => "eu"
+]);
+```
 3) Server info
-    ```php
-    $WarGaming->serverInfo($region = "eu");
-    ```
+```php
+$WarGaming->serverInfo($region = "eu");
+```
 4) Search clans
-    ```php
-    $WarGaming->searchClans($search = "volca", $options = [
-        "limit" => 10,
-        "pagination" => "1",
-        "region" => "eu"
-    ]);
-    ```
+```php
+$WarGaming->searchClans($search = "volca", $options = [
+    "limit"         => 10,
+    "pagination"    => "1",
+    "region"        => "eu"
+]);
+```
 5) Search clans by id
-    ```php
-    $WarGaming->infoClansById($clans_id = ["500041879", "500034196"], $options = [
-        "region" => "eu"
-    ]);
-    ```
+```php
+$WarGaming->infoClansById($clans_id = ["500041879", "500034196"], $options = [
+    "region" => "eu"
+]);
+```
 5) Search clans of player(s) id
-    ```php
-    $WarGaming->playerClans($players_id = ["500450795", "503197062", "500435236"]);
-    ```
+```php
+$WarGaming->playerClans($players_id = ["500450795", "503197062", "500435236"]);
+```
 
